@@ -1,5 +1,5 @@
-import axios from "axios";
-import React, { useState, useRef, useEffect } from "react";
+//import axios from "axios";
+import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 
 function Login() {
@@ -18,7 +18,7 @@ function Login() {
 
   //Login 클릭
   const submitHandler = () => {
-    console.log("login")
+    console.log("login");
     if (inputId.length < 5) {
       IdInput.current.focus();
       return;
@@ -33,7 +33,9 @@ function Login() {
     <div className="contaner">
       <div className="row">
         <div className="col-12 position-relative my-5">
-          <h2 className="fw-bolder fs-1 position-absolute top-50 start-50 translate-middle">Health-Info</h2>
+          <h2 className="fw-bolder fs-1 position-absolute top-50 start-50 translate-middle">
+            Health-Info
+          </h2>
         </div>
       </div>
       <div className="row">
@@ -41,7 +43,9 @@ function Login() {
           <form className="container bg-primary w-50 my-5 border border-dark-5 rounded-3">
             <div className="row">
               <div className="col-2 position-relative">
-                <p className="fw-bolder position-absolute top-50 start-50 translate-middle">ID</p>
+                <p className="fw-bolder position-absolute top-50 start-50 translate-middle">
+                  ID
+                </p>
               </div>
               <div className="col-10 my-3">
                 <input
@@ -50,14 +54,16 @@ function Login() {
                   type="text"
                   name="input_id"
                   value={inputId}
-                  placeholder="example@mail.com"
+                  placeholder="Example@mail.com"
                   onChange={handleInputId}
                 />
               </div>
             </div>
             <div className="row">
               <div className="col-2 position-relative">
-                <p className="fw-bolder position-absolute top-50 start-50 translate-middle">PW</p>
+                <p className="fw-bolder position-absolute top-50 start-50 translate-middle">
+                  PW
+                </p>
               </div>
               <div className="col-10 my-3">
                 <input
@@ -76,11 +82,22 @@ function Login() {
       </div>
       <div className="row my-5">
         <div className="col-6 position-relative">
-          <button type="button" className="btn btn-info position-absolute top-50 end-0 translate-middle-y mx-5 shadow-lg border border-dark" onClick={submitHandler}>Login</button>
+          <button
+            type="button"
+            className="btn btn-info position-absolute top-50 end-0 translate-middle-y mx-5 shadow-lg border border-dark"
+            onClick={submitHandler}
+          >
+            Login
+          </button>
         </div>
         <div className="col-6 position-relative">
-          <Link to="/">
-            <button type="button" className="btn btn-info position-absolute top-50 start-0 translate-middle-y mx-5 shadow-lg border border-dark">Sign up</button>
+          <Link to="/signup">
+            <button
+              type="button"
+              className="btn btn-info position-absolute top-50 start-0 translate-middle-y mx-5 shadow-lg border border-dark"
+            >
+              Sign up
+            </button>
           </Link>
         </div>
       </div>
