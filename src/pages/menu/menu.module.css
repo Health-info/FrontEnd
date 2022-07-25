@@ -1,0 +1,38 @@
+.cover{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr 1fr 1fr 1fr;
+
+  height: 50%;
+  width: 100%;
+}
+
+.titleBlock{
+  position: relative;
+}
+
+.title{
+  font-weight: 900;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.block{
+  position: relative;
+}
+
+.normalBtn{
+  font-weight: 900;
+  background-color: #b0e0e6;
+  border-radius: 0.5rem;
+  width: 40%;
+  height: 40%;
+  border: 1;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}

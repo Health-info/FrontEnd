@@ -1,4 +1,4 @@
-const Fit_main = () => {
+const FitMain = () => {
   return (
     <div>
       <h1>Fit Main</h1>
@@ -6,4 +6,4 @@ const Fit_main = () => {
     </div>
   );
 };
-export default Fit_main;
+export default FitMain;
