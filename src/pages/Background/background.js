@@ -1,7 +1,8 @@
 import Style from "./background.module.css";
+import BackImage from "./backimage.png";
 const Background = ({ Tag }) => {
   return (
-    <div>
+    <div style={{ backgroundImage: `url(${BackImage})` }}>
       <div className={Style.field}>
         <div className={Style.none} />
         <Tag />

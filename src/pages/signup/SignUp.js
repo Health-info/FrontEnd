@@ -1,5 +1,7 @@
+import Style from "./signup.css";
 import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
+import BackImage from "../Background/backimage.png";
 
 const SignUp = () => {
   const [inputId, setInputId] = useState("");
@@ -7,7 +9,7 @@ const SignUp = () => {
   const [inputPw, setInputPw] = useState("");
   const [inputHeight, setInputHeight] = useState("");
   const [inputWeight, setInputWeight] = useState("");
-
+  const [inputAge, setInputAge] = useState("");
   //유효성 검사
 
   //Focus용
@@ -16,9 +18,9 @@ const SignUp = () => {
   const PwInput = useRef();
   const HeightInput = useRef();
   const WeightInput = useRef();
+  const AgeInput = useRef();
 
   const submitHandler = () => {
-    console.log("login");
     if (inputId.length < 5) {
       IdInput.current.focus();
       return;
@@ -39,6 +41,9 @@ const SignUp = () => {
       WeightInput.current.focus();
       return;
     }
+    if (inputAge.length < 1) {
+      AgeInput.current.focus();
+    }
   };
 
   //input data의 변화 있을 때마다 value값 변경하여 useState
@@ -58,6 +63,9 @@ const SignUp = () => {
   const handleInputWeight = (e) => {
     setInputWeight(e.target.value);
   };
+  const handleInputAge = (e) => {
+    setInputAge(e.target.value);
+  };
   // 체크박스 하나만 선택
   const checkOnlyOne = (checkThis) => {
     const checkboxes = document.getElementsByName("gender");
@@ -69,85 +77,116 @@ const SignUp = () => {
   };
 
   return (
-    <div>
-      <h1>Sign Up</h1>
-      {/* E-mail */}
-      <input
-        ref={IdInput}
-        type="email"
-        name="input_id"
-        value={inputId}
-        placeholder="Example@mail.com"
-        onChange={handleInputId}
-      />
-      <br />
-      <input
-        ref={NameInput}
-        type="text"
-        name="name"
-        value={inputName}
-        placeholder="Name"
-        onChange={handleInputName}
-      />
-      <br />
-      {/* Password */}
-      <input
-        ref={PwInput}
-        type="text"
-        name="input_pw"
-        value={inputPw}
-        placeholder="PassWord"
-        onChange={handleInputPw}
-      />
-      <br />
-      {/* Password Check */}
-      <input type="text" name="input_pw_check" placeholder="PassWord Check" />
-      <br />
-      {/* Gender Check */}
-      <input
-        type="checkbox"
-        name="gender"
-        value="male"
-        onChange={(e) => checkOnlyOne(e.target)}
-        // Checkbox로 Focus주는 법 모르겠음
-      />{" "}
-      Male
-      <input
-        type="checkbox"
-        name="gender"
-        value="female"
-        onChange={(e) => checkOnlyOne(e.target)}
-      />
-      Female
-      <br />
-      <input
-        ref={HeightInput}
-        onKeyPress={(event) => {
-          if (!/[0-9]/.test(event.key)) {
-            event.preventDefault();
-          }
-        }}
-        placeholder="Height"
-        onChange={handleInputHeight}
-      />
-      <input
-        ref={WeightInput}
-        onKeyPress={(event) => {
-          if (!/[0-9]/.test(event.key)) {
-            event.preventDefault();
-          }
-        }}
-        placeholder="Weight"
-        onChange={handleInputWeight}
-      />
-      <br />
-      {/* Return & Submit  */}
-      <Link to="/login">
-        <button type="button">Return</button>
-      </Link>
-      <button type="button" onClick={submitHandler}>
-        Submit
-      </button>
+    <div
+      className={Style.field}
+      style={{ backgroundImage: `url(${BackImage})` }}
+    >
+      <form>
+        <h1>Sign Up</h1>
+        {/* E-mail */}
+        <div>
+          <input
+            className="basic"
+            ref={IdInput}
+            type="email"
+            name="input_id"
+            value={inputId}
+            placeholder="Example@mail.com"
+            onChange={handleInputId}
+          />
+        </div>
+        <input
+          className="basic"
+          ref={NameInput}
+          type="text"
+          name="name"
+          value={inputName}
+          placeholder="Name"
+          onChange={handleInputName}
+        />
+        <br />
+        {/* Password */}
+        <input
+          className="basic"
+          ref={PwInput}
+          type="text"
+          name="input_pw"
+          value={inputPw}
+          placeholder="PassWord"
+          onChange={handleInputPw}
+        />
+        <br />
+        {/* Password Check */}
+        <input
+          className="basic"
+          type="text"
+          name="input_pw_check"
+          placeholder="PassWord Check"
+        />
+        <br />
+        {/* Gender Check */}
+        <input
+          type="checkbox"
+          name="gender"
+          value="male"
+          onChange={(e) => checkOnlyOne(e.target)}
+          // Checkbox로 Focus주는 법 모르겠음
+        />{" "}
+        Male
+        <label htmlFor="cb1"></label>
+        <span></span>
+        <input
+          type="checkbox"
+          name="gender"
+          value="female"
+          onChange={(e) => checkOnlyOne(e.target)}
+        />{" "}
+        <label htmlFor="cb2"></label>
+        Female
+        <input
+          className="age"
+          ref={AgeInput}
+          onKeyPress={(event) => {
+            if (!/[0-9]/.test(event.key)) {
+              event.preventDefault();
+            }
+          }}
+          placeholder="Age"
+          onChange={handleInputAge}
+        />
+        <br />
+        <input
+          className="height"
+          ref={HeightInput}
+          onKeyPress={(event) => {
+            if (!/[0-9]/.test(event.key)) {
+              event.preventDefault();
+            }
+          }}
+          placeholder="Height"
+          onChange={handleInputHeight}
+        />
+        <input
+          className="weight"
+          ref={WeightInput}
+          onKeyPress={(event) => {
+            if (!/[0-9]/.test(event.key)) {
+              event.preventDefault();
+            }
+          }}
+          placeholder="Weight"
+          onChange={handleInputWeight}
+        />
+        {/* Return & Submit  */}
+        <Link to="/login">
+          <button className="return" type="button">
+            Return
+          </button>
+        </Link>
+        <button className="submit" type="button" onClick={submitHandler}>
+          Submit
+        </button>
+      </form>
     </div>
   );
 };
