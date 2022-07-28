@@ -1,4 +1,9 @@
 .cover{
+  background-color :aliceblue;
+  border : 1px solid white;
+  border-radius: 0.5rem;
+  box-shadow: 5px 10px rgb(200, 200, 200);
+
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 2fr 1fr 1fr 1fr;
@@ -12,7 +17,9 @@
 }
 
 .title{
+  text-shadow: -1px 0px #FFFFFF, 0px 1px #FFFFFF, 1px 0px #FFFFFF, 0px -1px #FFFFFF;
   font-weight: 900;
+  font-size: 60px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -29,7 +36,8 @@
   border-radius: 0.5rem;
   width: 40%;
   height: 40%;
-  border: 1;
+  border: 1px solid white;
+  box-shadow: 3px 5px rgb(200, 200, 200);
 
   position: absolute;
   top: 50%;

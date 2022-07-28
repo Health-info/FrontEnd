@@ -6,14 +6,15 @@
   align-items: center;
 
   height: 100vh;
+  min-height : 650px;
   width: 100vw;
+  min-width : 800px;
   
   position: relative;
 }
 
 .none{
-  height: 100%;
   width: 100%;
-
-  background-color: #F3F3F3
+  height: 100%;
+  background-color: white;
 }

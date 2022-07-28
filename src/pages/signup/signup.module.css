@@ -10,7 +10,7 @@
 
   position: relative;
 }
-h1 {
+.h1 {
   text-align: center;
 }
 .box {
@@ -47,7 +47,7 @@ input.age {
   height: 50px;
   margin: 8px;
 }
-form {
+.form {
   display: block;
   width: 500px;
   padding: 20px;

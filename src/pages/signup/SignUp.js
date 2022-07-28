@@ -1,7 +1,6 @@
-import Style from "./signup.css";
+import Style from "./signup.module.css";
 import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import BackImage from "../Background/backimage.png";
 
 const SignUp = () => {
   const [inputId, setInputId] = useState("");
@@ -79,7 +78,6 @@ const SignUp = () => {
   return (
     <div
       className={Style.field}
-      style={{ backgroundImage: `url(${BackImage})` }}
     >
       <form>
         <h1>Sign Up</h1>

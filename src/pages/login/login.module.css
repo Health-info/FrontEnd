@@ -1,0 +1,106 @@
+.cover {
+    background-color :aliceblue;
+    border : 1px solid white;
+    border-radius: 0.5rem;
+    box-shadow: 5px 10px rgb(200, 200, 200);
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+
+    height: 60%;
+    width: 100%;
+}
+
+.titleCover {
+    position: relative;
+}
+
+.title {
+    text-shadow: -1px 0px #FFFFFF, 0px 1px #FFFFFF, 1px 0px #FFFFFF, 0px -1px #FFFFFF;
+    font-weight: 900;
+    font-size : 50px;
+    height: 100%;
+
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.formCover {
+    position: relative;
+}
+
+.loginform{
+    background-color: #DCF0F4;
+    padding : 20px 30px 20px 30px;
+    border-radius : 0.25rem;
+    box-shadow: 5px 10px rgb(200, 200, 200);
+
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    grid-template-rows: 1fr 1fr;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 70%;
+}
+
+.formLabelCover{
+    position: relative;
+}
+
+.formLabel{
+    font-weight: 900;
+
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+}
+
+.buttonCover{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+
+    height: 30%;
+    position: relative;
+}
+
+.btnCover{
+    position: relative;
+    margin-top : 20px;
+}
+
+.loginBtn{
+    background-color:#B0E0E6;
+    border : 2px solid white;
+    border-radius: 0.5rem;
+    width: 100px;
+    height: 35px;
+    box-shadow: 3px 5px rgb(200, 200, 200);
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.signupBtn{
+    background-color:#B0E0E6;
+    border : 2px solid white;
+    border-radius: 0.5rem;
+    width: 100px;
+    height: 35px;
+    box-shadow: 3px 5px rgb(200, 200, 200);
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
