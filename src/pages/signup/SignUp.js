@@ -1,5 +1,5 @@
-import Style from "./signUp.module.css";
-import React, { useState, useEffect } from "react";
+import Style from "./signup.module.css";
+import React, { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const SignUp = () => {
@@ -11,22 +11,83 @@ const SignUp = () => {
   const [inputAge, setInputAge] = useState("");
   const [inputHeight, setInputHeight] = useState("");
   const [inputWeight, setInputWeight] = useState("");
-  
+
+  const getData = async () => {
+    const res = await fetch(
+      "https://raw.githubusercontent.com/Health-info/backend/main/api.txt"
+    ).then((res) => res.json());
+    console.log(res);
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+  //Ref
+  const idInput = useRef();
+  const nameInput = useRef();
+  const pwInput = useRef();
+  const pwCheckInput = useRef();
+  const ageInput = useRef();
+  const heightInput = useRef();
+  const weightInput = useRef();
+
   //submit
   const submitHandler = () => {
     console.log("sign Up");
+    if (inputId.length < 3) {
+      idInput.current.focus();
+      return;
+    }
+    if (inputName.length < 2) {
+      nameInput.current.focus();
+      return;
+    }
+    if (inputPw.length < 6) {
+      pwInput.current.focus();
+      return;
+    }
+    if (inputPw.length < 6) {
+      pwInput.current.focus();
+      return;
+    }
+    if (inputPwCheck.length < 6) {
+      pwCheckInput.current.focus();
+      return;
+    }
+    if (inputAge.length < 1) {
+      ageInput.current.focus();
+      return;
+    }
+    if (inputHeight.length < 2) {
+      heightInput.current.focus();
+      return;
+    }
+    if (inputWeight.length < 2) {
+      weightInput.current.focus();
+      return;
+    }
   };
 
   //password확인
   const passwordCheckFunc = () => {
-    if(inputPw !== inputPwCheck){
-      if(!document.querySelector("#passwordCheckInput").className.includes(' is-invalid')){
-        document.querySelector("#passwordCheckInput").className += ' is-invalid';
+    if (inputPw !== inputPwCheck) {
+      if (
+        !document
+          .querySelector("#passwordCheckInput")
+          .className.includes(" is-invalid")
+      ) {
+        document.querySelector("#passwordCheckInput").className +=
+          " is-invalid";
       }
-    }
-    else{
-      if(document.querySelector("#passwordCheckInput").className.includes(' is-invalid')){
-        document.querySelector("#passwordCheckInput").className = document.querySelector("#passwordCheckInput").className.replace(' is-invalid', '');
+    } else {
+      if (
+        document
+          .querySelector("#passwordCheckInput")
+          .className.includes(" is-invalid")
+      ) {
+        document.querySelector("#passwordCheckInput").className = document
+          .querySelector("#passwordCheckInput")
+          .className.replace(" is-invalid", "");
       }
     }
   };
@@ -47,7 +108,7 @@ const SignUp = () => {
   };
   const handelInputGender = (e) => {
     setInputGender(e.target.id);
-  }
+  };
   const handleInputAge = (e) => {
     setInputAge(e.target.value);
   };
@@ -65,6 +126,7 @@ const SignUp = () => {
         {/* E-mail */}
         <div>
           <input
+            ref={idInput}
             className="basic"
             type="email"
             name="input_id"
@@ -74,6 +136,7 @@ const SignUp = () => {
           />
         </div>
         <input
+          ref={nameInput}
           className="basic"
           type="text"
           name="name"
@@ -84,6 +147,7 @@ const SignUp = () => {
         <br />
         {/* Password */}
         <input
+          ref={pwInput}
           className="basic"
           type="text"
           name="input_pw"
@@ -94,6 +158,7 @@ const SignUp = () => {
         <br />
         {/* Password Check */}
         <input
+          ref={pwCheckInput}
           id="passwordCheckInput"
           className="basic"
           type="text"
@@ -120,6 +185,7 @@ const SignUp = () => {
         />
         {/* Age Check */}
         <input
+          ref={ageInput}
           className="age"
           onKeyPress={(event) => {
             if (!/[0-9]/.test(event.key)) {
@@ -132,6 +198,7 @@ const SignUp = () => {
         />
         {/* Height Check */}
         <input
+          ref={heightInput}
           className="height"
           onKeyPress={(event) => {
             if (!/[0-9]/.test(event.key)) {
@@ -144,6 +211,7 @@ const SignUp = () => {
         />
         {/* Weight Check */}
         <input
+          ref={weightInput}
           className="weight"
           onKeyPress={(event) => {
             if (!/[0-9]/.test(event.key)) {
