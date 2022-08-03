@@ -12,16 +12,6 @@ const SignUp = () => {
   const [inputHeight, setInputHeight] = useState("");
   const [inputWeight, setInputWeight] = useState("");
 
-  // const getData = async () => {
-  //   const res = await fetch(
-  //     "https://raw.githubusercontent.com/Health-info/backend/main/api.txt"
-  //   ).then((res) => res.json());
-  //   console.log(res);
-  // };
-
-  // useEffect(() => {
-  //   getData();
-  // }, []);
   //Ref
   const idInput = useRef();
   const nameInput = useRef();
@@ -127,7 +117,7 @@ const SignUp = () => {
         <div>
           <input
             ref={idInput}
-            className="basic"
+            className="form-control"
             type="email"
             name="input_id"
             value={inputId}
@@ -148,7 +138,7 @@ const SignUp = () => {
         {/* Password */}
         <input
           ref={pwInput}
-          className="basic"
+          className="form-control"
           type="text"
           name="input_pw"
           value={inputPw}
