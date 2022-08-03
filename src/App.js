@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./pages/login/Login";
 import Menu from "./pages/menu/Menu";
 import SignUp from "./pages/signup/SignUp";
-import FitMain from "./pages/fitMain/FItMain";
+import FitMain from "./pages/fitMain/FitMain";
 import Background from "./pages/Background/background";
 
 function App() {

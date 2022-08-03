@@ -1,9 +1,9 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Style from './login.module.css';
+import Style from "./login.module.css";
 
-const loginApiUrl='http://www.naver.com';
+const loginApiUrl = "http://www.naver.com";
 
 function Login() {
   const [inputId, setInputId] = useState("");
@@ -20,17 +20,18 @@ function Login() {
   //Login 클릭
   const submitHandler = () => {
     console.log("login");
-    if(inputId === '' || inputPw === '') return
+    if (inputId === "" || inputPw === "") return;
 
-    axios.post(loginApiUrl,{
-      email: inputId,
-      password: inputPw,
-    })
+    axios
+      .post(loginApiUrl, {
+        email: inputId,
+        password: inputPw,
+      })
       .then((response) => {
         console.log(response);
-//        window.location.href = '/';
+        //        window.location.href = '/';
       })
-      .catch((response) =>{
+      .catch((response) => {
         console.log(response);
       });
   };
@@ -69,10 +70,20 @@ function Login() {
       <div className={Style.buttonCover}>
         <div />
         <div className={Style.btnCover}>
-          <button type="button" className={Style.loginBtn} onClick={submitHandler}>Login</button>
+          <button
+            type="button"
+            className={Style.loginBtn}
+            onClick={submitHandler}
+          >
+            Login
+          </button>
         </div>
         <div className={Style.btnCover}>
-          <Link to="/signup"><button type="button" className={Style.signupBtn}>Sign up</button></Link>
+          <Link to="/signup">
+            <button type="button" className={Style.signupBtn}>
+              Sign up
+            </button>
+          </Link>
         </div>
         <div />
       </div>

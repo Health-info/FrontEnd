@@ -12,16 +12,16 @@ const SignUp = () => {
   const [inputHeight, setInputHeight] = useState("");
   const [inputWeight, setInputWeight] = useState("");
 
-  const getData = async () => {
-    const res = await fetch(
-      "https://raw.githubusercontent.com/Health-info/backend/main/api.txt"
-    ).then((res) => res.json());
-    console.log(res);
-  };
+  // const getData = async () => {
+  //   const res = await fetch(
+  //     "https://raw.githubusercontent.com/Health-info/backend/main/api.txt"
+  //   ).then((res) => res.json());
+  //   console.log(res);
+  // };
 
-  useEffect(() => {
-    getData();
-  }, []);
+  // useEffect(() => {
+  //   getData();
+  // }, []);
   //Ref
   const idInput = useRef();
   const nameInput = useRef();
@@ -31,9 +31,9 @@ const SignUp = () => {
   const heightInput = useRef();
   const weightInput = useRef();
 
+  const [isId, setIsId] = useState(false);
   //submit
   const submitHandler = () => {
-    console.log("sign Up");
     if (inputId.length < 3) {
       idInput.current.focus();
       return;
