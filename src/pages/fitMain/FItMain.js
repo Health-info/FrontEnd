@@ -50,6 +50,36 @@ const FitMain = () => {
     setExercise((current) => "B4");
   };
 
+  const ChestUpper = () => {
+    setExercise((current) => "C1");
+  };
+  const ChestMiddle = () => {
+    setExercise((current) => "C2");
+  };
+  const ChestLow = () => {
+    setExercise((current) => "C3");
+  };
+
+  const LegQuad = () => {
+    setExercise((current) => "L1");
+  };
+  const LegBiceps = () => {
+    setExercise((current) => "L2");
+  };
+  const LegGlutes = () => {
+    setExercise((current) => "L3");
+  };
+
+  const ArmBiceps = () => {
+    setExercise((current) => "A1");
+  };
+  const ArmTriceps = () => {
+    setExercise((current) => "A2");
+  };
+  const ArmFore = () => {
+    setExercise((current) => "A3");
+  };
+
   return (
     <div>
       <div>
@@ -164,9 +194,40 @@ const FitMain = () => {
         </div>
         {valid === "C" ? (
           <div>
-            <button type="button">Upper Chest</button>
-            <button type="button">Middle Chest</button>
-            <button type="button">Lower Chest</button>
+            <button type="button" onClick={ChestUpper}>
+              Upper Chest
+            </button>
+            {exercise === "C1" ? (
+              <div>
+                <button type="button">Incline Bench Press</button>
+                <button type="button">Incline Dumbbell Press</button>
+                <button type="button">Decline Push Up</button>
+                <button type="button">Low Cable Fly</button>
+              </div>
+            ) : null}
+            <button type="button" onClick={ChestMiddle}>
+              Middle Chest
+            </button>
+            {exercise === "C2" ? (
+              <div>
+                <button type="button">Bench Press</button>
+                <button type="button">Dumbbell Press</button>
+                <button type="button">Pec Dec Fly</button>
+                <button type="button">Chest Press</button>
+                <button type="button">Cable Fly</button>
+                <button type="button">Push Up</button>
+              </div>
+            ) : null}
+            <button type="button" onClick={ChestLow}>
+              Lower Chest
+            </button>
+            {exercise === "C3" ? (
+              <div>
+                <button type="button">Decline Bench Press</button>
+                <button type="button">Dips</button>
+                <button type="button">Incline Push Up</button>
+              </div>
+            ) : null}
           </div>
         ) : null}
 
@@ -177,9 +238,42 @@ const FitMain = () => {
         </div>
         {valid === "L" ? (
           <div>
-            <button type="button">Quadriceps</button>
-            <button type="button">Biceps Femoris</button>
-            <button type="button">Calf</button>
+            <button type="button" onClick={LegQuad}>
+              Quadriceps
+            </button>
+            {exercise === "L1" ? (
+              <div>
+                <button type="button">Waliking Lunge</button>
+                <button type="button">Bulgarian Split Squat</button>
+                <button type="button">Front Squat</button>
+                <button type="button">Leg Extension</button>
+                <button type="button">Leg Press</button>
+                <button type="button">Barbell Back Squat</button>
+              </div>
+            ) : null}
+
+            <button type="button" onClick={LegBiceps}>
+              Biceps Femoris
+            </button>
+            {exercise === "L2" ? (
+              <div>
+                <button type="button">Leg Curl</button>
+                <button type="button">Barbell Back Squat</button>
+                <button type="button">Leg Press</button>
+                <button type="button">Stiff DeadLift</button>
+                <button type="button">DeadLift</button>
+              </div>
+            ) : null}
+            <button type="button" onClick={LegGlutes}>
+              Glutes
+            </button>
+            {exercise === "L3" ? (
+              <div>
+                <button type="button">Stiff DeadLift</button>
+                <button type="button">DeadLift</button>
+                <button type="button">Hips Thrusts</button>
+              </div>
+            ) : null}
           </div>
         ) : null}
 
@@ -190,9 +284,43 @@ const FitMain = () => {
         </div>
         {valid === "A" ? (
           <div>
-            <button type="button">Biceps</button>
-            <button type="button">Triceps</button>
-            <button type="button">ForeArm</button>
+            <button type="button" onClick={ArmBiceps}>
+              Biceps
+            </button>
+            {exercise === "A1" ? (
+              <div>
+                <button type="button">Barbell Curl</button>
+                <button type="button">Chin Up</button>
+                <button type="button">Preacher Curl</button>
+                <button type="button">Hammer Curl</button>
+                <button type="button">Incline Dumbbell Curl</button>
+                <button type="button">Concentration Curl</button>
+              </div>
+            ) : null}
+            <button type="button" onClick={ArmTriceps}>
+              Triceps
+            </button>
+            {exercise === "A2" ? (
+              <div>
+                <button type="button">Dips</button>
+                <button type="button">Rope Tricep Push Down</button>
+                <button type="button">SkullCrusher</button>
+                <button type="button">Tricep Extension</button>
+                <button type="button">Close Grip Bench Press</button>
+              </div>
+            ) : null}
+            <button type="button" onClick={ArmFore}>
+              ForeArm
+            </button>
+            {exercise === "A3" ? (
+              <div>
+                <button type="button">EZ-Bar Reverse Curl</button>
+                <button type="button">Barbell Reverse Biceps Curl</button>
+                <button type="button">Hammer Curl</button>
+                <button type="button">Zottman Curl</button>
+                <button type="button">Farmer's Carry</button>
+              </div>
+            ) : null}
           </div>
         ) : null}
 
