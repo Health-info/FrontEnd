@@ -1,18 +1,25 @@
-.cover{
+.mainCover{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
   background-color :aliceblue;
   border : 1px solid white;
   border-radius: 0.5rem;
-  box-shadow: 5px 10px rgb(200, 200, 200);
+  box-shadow: 3px 3px 3px rgb(200, 200, 200);
 
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 2fr 1fr 1fr 1fr;
 
-  height: 50%;
-  width: 100%;
+  height: 60%;
+  width: 70%;
+  min-height: 400px;
+  min-width: 700px;
 }
 
-.titleBlock{
+.Cover{
   position: relative;
 }
 
@@ -26,10 +33,6 @@
   transform: translate(-50%,-50%);
 }
 
-.block{
-  position: relative;
-}
-
 .normalBtn{
   font-weight: 900;
   background-color: #b0e0e6;
@@ -37,7 +40,7 @@
   width: 40%;
   height: 40%;
   border: 1px solid white;
-  box-shadow: 3px 5px rgb(200, 200, 200);
+  box-shadow: 3px 3px 3px rgb(200, 200, 200);
 
   position: absolute;
   top: 50%;

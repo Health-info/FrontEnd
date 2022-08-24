@@ -4,7 +4,6 @@ import Login from "./pages/login/Login";
 import Menu from "./pages/menu/Menu";
 import SignUp from "./pages/signup/SignUp";
 import FitMain from "./pages/fitMain/FitMain";
-import Background from "./pages/Background/background";
 
 function App() {
   return (
@@ -12,9 +11,9 @@ function App() {
       <div>
         <Routes>
           <Route path="/fit" element={<FitMain />} />
-          <Route path="/signup" element={<Background Tag={SignUp} />} />
-          <Route path="/login" element={<Background Tag={Login} />} />
-          <Route path="/" element={<Background Tag={Menu} />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Menu />} />
         </Routes>
       </div>
     </BrowserRouter>

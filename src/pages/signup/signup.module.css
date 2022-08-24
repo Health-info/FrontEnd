@@ -1,85 +1,150 @@
-.field {
-  display: grid;
-  grid-template-columns: 1fr 5fr 1fr;
-  grid-template-rows: 1fr;
+/*전체 페이지*/
+.signUpBoxCover{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
-  height: 60%;
+  width: 70%;
+  min-width: 800px;
+  height: 80%;
+  min-height: 600px;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 7fr 1fr;
+
+  background-color :aliceblue;
+  border : 1px solid white;
+  border-radius: 0.5rem;
+  box-shadow: 3px 3px 3px rgb(200, 200, 200);
+}
+
+/*postition: relative가 필요한 모든 곳*/
+.Cover{
+  position: relative;
+}
+
+/************************************************************/
+/*제목 영역*/
+.title{
+  text-shadow: -1px 0px #FFFFFF, 0px 1px #FFFFFF, 1px 0px #FFFFFF, 0px -1px #FFFFFF;
+  font-weight: 900;
+  font-size : 40px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/************************************************************/
+/*로그인 영역*/
+.signupMain{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  height: 90%;
+  width: 90%;
+  padding: 20px;
+  background-color: #DCF0F4;
+  border-radius : 0.25rem;
+  box-shadow: 3px 3px 3px rgb(200, 200, 200);
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(7, 1fr);
+}
+
+/*label과 Input, 오른쪽에 버튼을 위한 공간이 있는 라인*/
+.labelInputArea{
+  position: absolute;
+  display: grid;
+  grid-template-columns: 4fr 12fr 3fr;
+  grid-template-rows: 1fr;
+  height: 100%;
   width: 100%;
 }
 
-/* input css */
-input.basic {
-  border: solid 2px;
-  border-radius: 8px;
-  height: 50px;
-  width: 400px;
-  margin: 8px;
-}
-input.height {
-  border: solid 2px;
-  border-radius: 8px;
-  height: 50px;
-  width: 200px;
-  margin-right: 1px;
+/*label과 Input만 있는 공간이 있는 라인*/
+.labelInputOnlyArea{
+  position: absolute;
+  display: grid;
+  grid-template-columns: 4fr 15fr;
+  grid-template-rows: 1fr;
+  height: 100%;
+  width: 100%;
 }
 
-input.weight {
-  border: solid 2px;
-  border-radius: 8px;
-  height: 50px;
-  width: 200px;
-  margin-left: 1px;
+/*label과 input만 있는데 2개로 나뉘어야할 때 이걸로 먼저 쪼갠다.*/
+.onelineTwoInputArea{
+  position: absolute;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  height: 100%;
+  width: 100%;
 }
 
-input.age {
-  border: solid 2px;
-  border-radius: 8px;
-  height: 50px;
-  margin: 8px;
+.formLabel{
+  font-weight: 900;
+
+  position: absolute;
+  top: 50%;
+  left: 8px;
+  transform: translate(0, -50%);
 }
-.form {
-  display: block;
-  width: 500px;
-  padding: 20px;
-  text-align: center;
-  background-color: #dcf0f4;
-  position: relative;
-  left: 25%;
+
+.formInput{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  height: 70%;
+  width: 100%;
+
+  border: 1px solid rgb(200, 200, 200);
+  border-radius: 0.25rem;
+  box-shadow: 3px 3px 3px rgb(200, 200, 200);
 }
-.return {
-  width: 180px;
-  height: 50px;
-  font-size: 25px;
-  line-height: 50px;
-  text-align: center;
-  background: #b0e0e6;
-  border: solid 2px;
-  border-radius: 25px;
-  margin-right: 5px;
+.formInput:focus{
+  outline: none;
 }
-.submit {
-  margin-top: 40px;
-  width: 180px;
-  height: 50px;
-  font-size: 25px;
-  line-height: 50px;
-  text-align: center;
-  background: #ffb800;
-  border: solid 2px;
-  border-radius: 25px;
-  margin-left: 5px;
+
+.formInputRadio{
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
 }
-/* checkbox css
-input[id="cb1"] + label {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  border: 2px solid #bcbcbc;
-  cursor: pointer;
+
+/*************************************************************/
+/*버튼 영역*/
+.buttonCover{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 50%;
+  height: 50%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
 }
-input[id="cb1"]:checked + label {
-  background-color: #666666;
+
+.btn{
+  background-color:#B0E0E6;
+  border : 2px solid white;
+  border-radius: 0.5rem;
+  width: 90px;
+  height: 35px;
+  box-shadow: 3px 3px 3px rgb(200, 200, 200);
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-input[id="cb1"] {
-  display: none;
-} */

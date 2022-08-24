@@ -1,26 +1,36 @@
 import Style from './menu.module.css';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+
+const logoutApiUrl = "http://43.200.170.40:80/auth/logout";
 
 const Menu = () => {
   const onChattingClick = () => {
-    console.log("구현 예정")
+    alert("업데이트 예정");
   }
   const onLogoutClick = () => {
-    //로그아웃하는 API call하기 => 동기로 처리하고 처리 된 이후에 login 화면으로 이동
-    window.location.href = '/login';
+    axios.get(logoutApiUrl)
+    .then((res) =>{
+      alert("로그아웃되었습니다.");
+      window.location.href="/login";
+    })
+    .catch((res) =>{
+      console.log(res);
+      alert("문제 발생");
+    });
   }
   return (
-      <div className={Style.cover}>
-          <div className={Style.titleBlock}>
+      <div className={Style.mainCover}>
+          <div className={Style.Cover}>
             <h1 className={Style.title}>Menu</h1>
           </div>
-          <div className={Style.block}>
+          <div className={Style.Cover}>
             <Link to='fit'><button type="button"className={Style.normalBtn}>Guide</button></Link>
           </div>
-          <div className={Style.block}>
+          <div className={Style.Cover}>
             <button type="button" className={Style.normalBtn} onClick={onChattingClick}>Chatting</button>
           </div>
-          <div className={Style.block}>
+          <div className={Style.Cover}>
             <button type="button" className={Style.normalBtn} onClick={onLogoutClick}>Logout</button>
           </div>
       </div>
