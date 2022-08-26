@@ -6,8 +6,8 @@ const logoutApiUrl = "http://43.200.170.40:80/auth/logout";
 
 const Menu = () => {
   const onChattingClick = () => {
-    alert("업데이트 예정");
-  }
+    window.location.href = "http://api.healthinfo.pe.kr/gifchat";
+  };
   const onLogoutClick = () => {
     axios.get(logoutApiUrl)
     .then((res) =>{
@@ -18,7 +18,7 @@ const Menu = () => {
       console.log(res);
       alert("문제 발생");
     });
-  }
+  };
   return (
       <div className={Style.mainCover}>
           <div className={Style.Cover}>

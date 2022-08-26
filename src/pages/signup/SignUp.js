@@ -1,6 +1,7 @@
 import Style from "./signUp.module.css";
 import React, { useRef, useState, useEffect } from "react";
 import axios from 'axios';
+axios.defaults.withCredentials = true; 
 
 const emailSendApiUrl = "http://43.200.170.40:80/auth/sendmail";
 const emailAuthApiUrl = "http://43.200.170.40:80/auth/authNumCheck";
@@ -141,7 +142,7 @@ const SignUp = () => {
   };
 
   //이메일 인증 클릭 handler
-  const emailSendHandler = () =>{//작성 더 해야함
+  const emailSendHandler = () =>{
     if(inputId === '') {
       alert("이메일을 입력해 주세요.");
       return;
@@ -165,14 +166,14 @@ const SignUp = () => {
   };
 
   //이메일 인증번호 제출 handler
-  const emailAuthHandler = () =>{//작성 더 해야함
+  const emailAuthHandler = () =>{
     if(inputAuthNumber === '') {
       alert("인증번호를 입력해 주세요");
       return;
     }
 
     axios.post(emailAuthApiUrl,{
-      authNum: inputAuthNumber,
+      authNum: Number(inputAuthNumber),
     })
     .then((res) => {
       console.log(res);
