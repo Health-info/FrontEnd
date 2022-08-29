@@ -10,7 +10,17 @@
     - 문제 : npm start를 하려고 했으나, permission denied 오류가 발생했다.
     - 해결방안 : sudo chmod +x node_modules/.bin/react-scripts 명령어를 통해 react에게 node_modules에 대한 권한을 부여해야한다.
 
-3. npm start시 포트 변경
+3. IP주소대신 도메인으로 변경
+    - 방법 :
+        1. AWS에서 서비스에서 Route 53으로 이동
+        2. 호스팅 영역으로 들어가서 호스팅 영역 생성
+        3. 유형 A는 레코드 이름을 IP주소에 연결하는 역할
+        4. 유형 CNAME은 www를 붙이는 등 여러 경우 정상적으로 올 수 있게 해주는 역할
+        5. 유형 NS는 Name Server로, 여러 네임서버에 우리의 라우트 상황을 인지할 수 있도록 해준다.
+            => 즉, 이 NS는 내가 도메인을 구입했던 곳에 네임서버라고 되어있는 곳에 입력해야한다.
+        6. 위 과정을 거치면 정상적으로 도메인을 IP로 연결할 수 있다.
+
+4. npm start시 포트 변경
     - 배경 : react-app은 기본적으로 3000번포트를 사용한다. 이를 HTTP인 80번 포트로 변경하고자 한다.
     - 문제 : local환경에서는 80번 포트로 잘 변경 되었으나, AWS기기에서는 3000으로 열렸다.
-    - 해결방안 :
+    - 해결방안 : .env파일로 강제적으로 포트를 변경하는 경우 문제가 발생했던 것이다. package.json파일에서 "scripts"안에 "start": "export PORT=80 && react-scripts start"로 변경하니 정상적으로 실행되었다.
