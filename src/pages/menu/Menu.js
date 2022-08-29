@@ -1,8 +1,7 @@
 import Style from './menu.module.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-
-const logoutApiUrl = "http://43.200.170.40:80/auth/logout";
+import { logoutApiUrl } from "../../apiUrl";
 
 const Menu = () => {
   const onChattingClick = () => {

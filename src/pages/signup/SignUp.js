@@ -1,12 +1,13 @@
 import Style from "./signUp.module.css";
 import React, { useRef, useState, useEffect } from "react";
 import axios from 'axios';
-axios.defaults.withCredentials = true; 
-
-const emailSendApiUrl = "http://43.200.170.40:80/auth/sendmail";
-const emailAuthApiUrl = "http://43.200.170.40:80/auth/authNumCheck";
-const signUpApiUrl = "http://43.200.170.40:80/auth/join";
-const loginApiUrl = "http://43.200.170.40:80/auth/login";
+import {
+  emailSendApiUrl,
+  emailAuthApiUrl,
+  signUpApiUrl,
+  loginApiUrl,
+} from "../../apiUrl";
+axios.defaults.withCredentials = true;
 
 const SignUp = () => {
   const [inputId, setInputId] = useState("");

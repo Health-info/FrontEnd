@@ -1,8 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import Style from "./login.module.css";
-
-const loginApiUrl = "http://43.200.170.40:80/auth/login";
+import { loginApiUrl } from "../../apiUrl";
 
 function Login() {
   const [inputId, setInputId] = useState("");
