@@ -9,3 +9,8 @@
     - 배경 : 기존에 localhost에서 진행하던 개발을, 이제 AWS로 옮기는 작업을 진행
     - 문제 : npm start를 하려고 했으나, permission denied 오류가 발생했다.
     - 해결방안 : sudo chmod +x node_modules/.bin/react-scripts 명령어를 통해 react에게 node_modules에 대한 권한을 부여해야한다.
+
+3. npm start시 포트 변경
+    - 배경 : react-app은 기본적으로 3000번포트를 사용한다. 이를 HTTP인 80번 포트로 변경하고자 한다.
+    - 문제 : local환경에서는 80번 포트로 잘 변경 되었으나, AWS기기에서는 3000으로 열렸다.
+    - 해결방안 :
