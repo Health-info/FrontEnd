@@ -36,51 +36,51 @@ const SignUp = () => {
   //submit
   const submitHandler = () => {
     //공란 확인
-    if (inputId.length == 0) {
+    if (inputId.length === 0) {
       idInput.current.focus();
       alert("이메일을 입력해 주세요");
       return;
     }
-    if (inputAuthNumber.length == 0 || !emailAuthorized) {
+    if (inputAuthNumber.length === 0 || !emailAuthorized) {
       authNumberInput.current.focus();
       alert("이메일 인증을 완료해 주세요");
       return;
     }
-    if (inputPw.length == "") {
+    if (inputPw.length === "") {
       pwInput.current.focus();
       alert("비밀번호를 확인해 주세요");
       return;
     }
-    if (inputPwCheck.length == 0) {
+    if (inputPwCheck.length === 0) {
       pwInput.current.focus();
       alert("비밀번호 확인란을 입력해 주세요");
       return;
     }
-    if (inputName.length == 0) {
+    if (inputName.length === 0) {
       nameInput.current.focus();
       alert("닉네임을 입력해 주세요");
       return;
     }
-    if (inputPwCheck.length == 0) {
+    if (inputPwCheck.length === 0) {
       pwCheckInput.current.focus();
       alert("이메일을 입력해 주세요");
       return;
     }
-    if (inputAge.length == 0) {
+    if (inputAge.length === 0) {
       ageInput.current.focus();
       alert("나이를 입력해 주세요");
       return;
     }
-    if (inputGender == "") {
+    if (inputGender === "") {
       alert("성별을 입력해 주세요");
       return;
     }
-    if (inputWeight.length == 0) {
+    if (inputWeight.length === 0) {
       weightInput.current.focus();
       alert("몸무게를 입력해 주세요");
       return;
     }
-    if (inputHeight.length == 0) {
+    if (inputHeight.length === 0) {
       heightInput.current.focus();
       alert("키를 입력해 주세요");
       return;
