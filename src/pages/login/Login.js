@@ -1,9 +1,9 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Style from "./login.module.css";
 import { loginApiUrl } from "../../apiUrl";
 
-function Login(loginFunction) {
+function Login() {
   const [inputId, setInputId] = useState("");
   const [inputPw, setInputPw] = useState("");
   //input data의 변화 있을 때마다 value값 변경하여 useState
@@ -29,7 +29,7 @@ function Login(loginFunction) {
       })
       .then((response) => {
         console.log(response);
-        loginFunction();
+        localStorage.setItem("login", "True");
         window.location.href = '/';
       })
       .catch((response) => {
