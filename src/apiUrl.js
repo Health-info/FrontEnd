@@ -1,4 +1,6 @@
 const serverDNS = "api.healthinfo.pe.kr";
+export const siteUrl = "http://healthinfo.pe.kr/";
+//export const siteUrl = "http://localhost";
 
 //SignUp.js에서 사용
 export const emailSendApiUrl = `http://${serverDNS}/auth/sendmail`;

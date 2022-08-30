@@ -9,7 +9,7 @@ import {
 } from "../../apiUrl";
 axios.defaults.withCredentials = true;
 
-const SignUp = () => {
+const SignUp = (isLogin) => {
   const [inputId, setInputId] = useState("");
   const [inputAuthNumber, setInputAuthNumber] = useState("");
   const [emailAuthorized, setEmailAuthorized] = useState(false);//이메일 인증 시 true로 전황
@@ -113,6 +113,7 @@ const SignUp = () => {
       })
       .then((res) => {
         alert("정상적으로 로그인 되었습니다.");
+        isLogin = true;
         window.location.href="/";
       })
       .catch((res) => {

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Style from "./login.module.css";
 import { loginApiUrl } from "../../apiUrl";
 
-function Login() {
+function Login(isLogin) {
   const [inputId, setInputId] = useState("");
   const [inputPw, setInputPw] = useState("");
   //input data의 변화 있을 때마다 value값 변경하여 useState
@@ -29,11 +29,12 @@ function Login() {
       })
       .then((response) => {
         console.log(response);
+        isLogin = true;
         window.location.href = '/';
       })
       .catch((response) => {
         console.log(response);
-        alert("오류 발생. 다시 로그인해주시기 바랍니다.")
+        alert("오류 발생. 다시 로그인해주시기 바랍니다.");
       });
   };
 
