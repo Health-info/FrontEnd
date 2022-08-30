@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { logoutApiUrl } from "../../apiUrl";
 
-const Menu = (isLogin) => {
+const Menu = (setIsLogin) => {
   const onChattingClick = () => {
     window.location.href = "http://api.healthinfo.pe.kr/gifchat";
   };
@@ -11,7 +11,7 @@ const Menu = (isLogin) => {
     axios.get(logoutApiUrl)
     .then((res) =>{
       alert("로그아웃되었습니다.");
-      isLogin = false;
+      setIsLogin(false);
       window.location.href="/login";
     })
     .catch((res) =>{

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./pages/login/Login";
 import Menu from "./pages/menu/Menu";
@@ -8,9 +8,8 @@ import {
   siteUrl,
 } from "./apiUrl";
 
-let isLogin = false;
-
 function App() {
+  const [isLogin, setIsLogin] = useState(false);
   const notLogined = () =>{
     if(isLogin){//로그인 된 상태인 경우, '/fit'과 '/'만 이용가능하다.
       if(window.location.href === `${siteUrl}/login` || window.location.href === `${siteUrl}/signup`){
@@ -30,9 +29,9 @@ function App() {
       <div>
         <Routes>
           <Route path="/fit" element={<FitMain />} />
-          <Route path="/signup" element={<SignUp isLogin={isLogin} />} />
-          <Route path="/login" element={<Login isLogin={isLogin} />} />
-          <Route path="/" element={<Menu isLogin={isLogin} />} />
+          <Route path="/signup" element={<SignUp setIsLogin={setIsLogin} />} />
+          <Route path="/login" element={<Login setIsLogin={setIsLogin} />} />
+          <Route path="/" element={<Menu setIsLogin={setIsLogin} />} />
         </Routes>
       </div>
     </BrowserRouter>
