@@ -1,5 +1,5 @@
 const serverDNS = "api.healthinfo.pe.kr";
-export const siteUrl = "http://healthinfo.pe.kr/";
+export const siteUrl = "http://healthinfo.pe.kr";
 //export const siteUrl = "http://localhost";
 
 //SignUp.js에서 사용
