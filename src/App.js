@@ -10,6 +10,12 @@ import {
 
 function App() {
   const [isLogin, setIsLogin] = useState(false);
+  const loginFunction = () => {
+    setIsLogin(true);
+  };
+  const logoutFunction = () => {
+    setIsLogin(false);
+  };
   const notLogined = () =>{
     if(isLogin){//로그인 된 상태인 경우, '/fit'과 '/'만 이용가능하다.
       if(window.location.href === `${siteUrl}/login` || window.location.href === `${siteUrl}/signup`){
@@ -29,9 +35,9 @@ function App() {
       <div>
         <Routes>
           <Route path="/fit" element={<FitMain />} />
-          <Route path="/signup" element={<SignUp setIsLogin={setIsLogin} />} />
-          <Route path="/login" element={<Login setIsLogin={setIsLogin} />} />
-          <Route path="/" element={<Menu setIsLogin={setIsLogin} />} />
+          <Route path="/signup" element={<SignUp loginFunction={loginFunction} />} />
+          <Route path="/login" element={<Login loginFunction={loginFunction} />} />
+          <Route path="/" element={<Menu logoutFunction={logoutFunction} />} />
         </Routes>
       </div>
     </BrowserRouter>
