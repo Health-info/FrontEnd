@@ -1,6 +1,6 @@
 import Style from "./signUp.module.css";
 import React, { useRef, useState, useEffect } from "react";
-import axios from 'axios';
+import axios from "axios";
 import {
   emailSendApiUrl,
   emailAuthApiUrl,
@@ -12,7 +12,7 @@ axios.defaults.withCredentials = true;
 const SignUp = () => {
   const [inputId, setInputId] = useState("");
   const [inputAuthNumber, setInputAuthNumber] = useState("");
-  const [emailAuthorized, setEmailAuthorized] = useState(false);//이메일 인증 시 true로 전황
+  const [emailAuthorized, setEmailAuthorized] = useState(false); //이메일 인증 시 true로 전황
   const [inputName, setInputName] = useState("");
   const [inputPw, setInputPw] = useState("");
   const [inputPwCheck, setInputPwCheck] = useState("");
@@ -30,9 +30,6 @@ const SignUp = () => {
   const ageInput = useRef();
   const heightInput = useRef();
   const weightInput = useRef();
-
-  const [isId, setIsId] = useState(false);/* 이거 뭐야 지훈아? */
-
   //submit
   const submitHandler = () => {
     //공란 확인
@@ -87,7 +84,7 @@ const SignUp = () => {
     }
 
     //비밀번호 동일 확인
-    if(inputPw !== inputPwCheck){
+    if (inputPw !== inputPwCheck) {
       alert("비밀번호를 다시 입력해주세요");
       pwInput.current.focus();
       setInputPw("");
@@ -96,98 +93,103 @@ const SignUp = () => {
     }
 
     //문제가 없는 경우 서버에 send
-    axios.post(signUpApiUrl, {
-      email: inputId,
-      password: inputPw,
-      nick: inputName,
-      age: inputAge,
-      gender: inputGender,
-      weight: inputWeight,
-      height: inputHeight,
-    })
-    .then((res) => {
-      alert("정상적으로 회원가입 되었습니다.");
-      axios.post(loginApiUrl, {
+    axios
+      .post(signUpApiUrl, {
         email: inputId,
         password: inputPw,
+        nick: inputName,
+        age: inputAge,
+        gender: inputGender,
+        weight: inputWeight,
+        height: inputHeight,
       })
       .then((res) => {
-        alert("정상적으로 로그인 되었습니다.");
-        localStorage.setItem("login", "True");
-        window.location.href="/";
+        alert("정상적으로 회원가입 되었습니다.");
+        axios
+          .post(loginApiUrl, {
+            email: inputId,
+            password: inputPw,
+          })
+          .then((res) => {
+            alert("정상적으로 로그인 되었습니다.");
+            localStorage.setItem("login", "True");
+            window.location.href = "/";
+          })
+          .catch((res) => {
+            alert("로그인 하지 못했습니다. 다시 로그인 해주세요");
+            window.location.href = "/login";
+          });
       })
       .catch((res) => {
-        alert("로그인 하지 못했습니다. 다시 로그인 해주세요");
-        window.location.href="/login";
-      })
-    })
-    .catch((res) => {
-      alert("문제가 발생했습니다.");
-      console.log(res);
-    })
+        alert("문제가 발생했습니다.");
+        console.log(res);
+      });
   };
 
   //password확인
   const passwordCheckFunc = () => {
     if (inputPw !== inputPwCheck) {
-      document.querySelector("#passwordCheck").style.border = "solid 1px rgb(255, 0, 0)";
-    }
-    else {
-      document.querySelector("#passwordCheck").style.border = "solid 1px rgb(200, 200, 200)";
+      document.querySelector("#passwordCheck").style.border =
+        "solid 1px rgb(255, 0, 0)";
+    } else {
+      document.querySelector("#passwordCheck").style.border =
+        "solid 1px rgb(200, 200, 200)";
     }
   };
   useEffect(passwordCheckFunc, [inputPwCheck]);
 
   //return클릭handler
   const returnHandler = () => {
-    window.location.href="/login"
+    window.location.href = "/login";
   };
 
   //이메일 인증 클릭 handler
-  const emailSendHandler = () =>{
-    if(inputId === '') {
+  const emailSendHandler = () => {
+    if (inputId === "") {
       alert("이메일을 입력해 주세요.");
       return;
     }
-    if(!inputId.includes("@") || !inputId.includes(".")){
+    if (!inputId.includes("@") || !inputId.includes(".")) {
       alert("정확한 이메일형식을 맞춰서 입력해 주세요.");
       return;
     }
 
-    axios.post(emailSendApiUrl,{
-      mail: inputId,
-    })
-    .then((res) => {
-      console.log(res);
-      alert("인증 메일을 보냈습니다.");
-    })
-    .catch((res) => {
-      console.log(res);
-      alert("문제가 발생했습니다.");
-    })
+    axios
+      .post(emailSendApiUrl, {
+        mail: inputId,
+      })
+      .then((res) => {
+        console.log(res);
+        alert("인증 메일을 보냈습니다.");
+      })
+      .catch((res) => {
+        console.log(res);
+        alert("문제가 발생했습니다.");
+      });
   };
 
   //이메일 인증번호 제출 handler
-  const emailAuthHandler = () =>{
-    if(inputAuthNumber === '') {
+  const emailAuthHandler = () => {
+    if (inputAuthNumber === "") {
       alert("인증번호를 입력해 주세요");
       return;
     }
 
-    axios.post(emailAuthApiUrl,{
-      authNum: Number(inputAuthNumber),
-    })
-    .then((res) => {
-      console.log(res);
-      setEmailAuthorized(true);
-      alert("인증되었습니다.");
-      document.querySelector("#signUpEmail").disabled = true;
-      document.querySelector("#emailAuth").disabled = true;
-    })
-    .catch((res) => {
-      console.log(res);
-      alert("문제가 발생했습니다.");
-    })
+    axios
+      .post(emailAuthApiUrl, {
+        authNum: Number(inputAuthNumber),
+      })
+      .then((res) => {
+        console.log(res);
+        setEmailAuthorized(true);
+        alert("인증되었습니다.");
+        document.querySelector("#signUpEmail").disabled = true;
+        document.querySelector("#emailAuth").disabled = true;
+      })
+      .catch((res) => {
+        console.log(res);
+        alert("문제가 발생했습니다.");
+      });
   };
 
   //input data의 변화 있을 때마다 value값 변경하여 useState
@@ -196,7 +198,7 @@ const SignUp = () => {
   };
   const handleInputAuthNumber = (e) => {
     setInputAuthNumber(e.target.value);
-  }
+  };
   const handleInputName = (e) => {
     setInputName(e.target.value);
   };
@@ -207,10 +209,9 @@ const SignUp = () => {
     setInputPwCheck(e.target.value);
   };
   const handelInputGender = (e) => {
-    if(e.target.id === 'male'){
+    if (e.target.id === "male") {
       setInputGender(true);
-    }
-    else{
+    } else {
       setInputGender(false);
     }
   };
@@ -235,9 +236,7 @@ const SignUp = () => {
           <div className={Style.Cover}>
             <div className={Style.labelInputArea}>
               <div className={Style.Cover}>
-                <label 
-                  htmlFor="signUpEmail"
-                  className={Style.formLabel}>
+                <label htmlFor="signUpEmail" className={Style.formLabel}>
                   Email
                 </label>
               </div>
@@ -254,7 +253,13 @@ const SignUp = () => {
                 />
               </div>
               <div className={Style.Cover}>
-                <button className={Style.btn} type="button" onClick={emailSendHandler}>인증</button>
+                <button
+                  className={Style.btn}
+                  type="button"
+                  onClick={emailSendHandler}
+                >
+                  인증
+                </button>
               </div>
             </div>
           </div>
@@ -262,9 +267,7 @@ const SignUp = () => {
           <div className={Style.Cover}>
             <div className={Style.labelInputArea}>
               <div className={Style.Cover}>
-                <label 
-                  htmlFor="emailAuth"
-                  className={Style.formLabel}>
+                <label htmlFor="emailAuth" className={Style.formLabel}>
                   인증번호
                 </label>
               </div>
@@ -281,7 +284,13 @@ const SignUp = () => {
                 />
               </div>
               <div className={Style.Cover}>
-                <button className={Style.btn} type="button" onClick={emailAuthHandler}>제출</button>
+                <button
+                  className={Style.btn}
+                  type="button"
+                  onClick={emailAuthHandler}
+                >
+                  제출
+                </button>
               </div>
             </div>
           </div>
@@ -289,9 +298,7 @@ const SignUp = () => {
           <div className={Style.Cover}>
             <div className={Style.labelInputArea}>
               <div className={Style.Cover}>
-                <label 
-                  htmlFor="password"
-                  className={Style.formLabel}>
+                <label htmlFor="password" className={Style.formLabel}>
                   password
                 </label>
               </div>
@@ -314,9 +321,7 @@ const SignUp = () => {
           <div className={Style.Cover}>
             <div className={Style.labelInputArea}>
               <div className={Style.Cover}>
-                <label 
-                  htmlFor="passwordCheck"
-                  className={Style.formLabel}>
+                <label htmlFor="passwordCheck" className={Style.formLabel}>
                   password Check
                 </label>
               </div>
@@ -339,9 +344,7 @@ const SignUp = () => {
           <div className={Style.Cover}>
             <div className={Style.labelInputArea}>
               <div className={Style.Cover}>
-                <label 
-                  htmlFor="Nickname"
-                  className={Style.formLabel}>
+                <label htmlFor="Nickname" className={Style.formLabel}>
                   Nickname
                 </label>
               </div>
@@ -366,9 +369,7 @@ const SignUp = () => {
               <div className={Style.Cover}>
                 <div className={Style.labelInputOnlyArea}>
                   <div className={Style.Cover}>
-                    <label 
-                      htmlFor="age"
-                      className={Style.formLabel}>
+                    <label htmlFor="age" className={Style.formLabel}>
                       Age
                     </label>
                   </div>
@@ -393,10 +394,7 @@ const SignUp = () => {
               <div className={Style.Cover}>
                 <div className={Style.labelInputOnlyArea}>
                   <div className={Style.Cover}>
-                    <label
-                      className={Style.formLabel}>
-                      Gender
-                    </label>
+                    <label className={Style.formLabel}>Gender</label>
                   </div>
                   <div className={Style.Cover}>
                     <div className={Style.onelineTwoInputArea}>
@@ -407,7 +405,8 @@ const SignUp = () => {
                             type="radio"
                             name="gender"
                             onChange={handelInputGender}
-                          /><label htmlFor="male">Male</label>
+                          />
+                          <label htmlFor="male">Male</label>
                         </div>
                       </div>
                       <div className={Style.Cover}>
@@ -417,8 +416,9 @@ const SignUp = () => {
                             type="radio"
                             name="gender"
                             onChange={handelInputGender}
-                          /><label htmlFor="female">Female</label>
-                          </div>
+                          />
+                          <label htmlFor="female">Female</label>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -433,9 +433,7 @@ const SignUp = () => {
               <div className={Style.Cover}>
                 <div className={Style.labelInputOnlyArea}>
                   <div className={Style.Cover}>
-                    <label 
-                      htmlFor="weight"
-                      className={Style.formLabel}>
+                    <label htmlFor="weight" className={Style.formLabel}>
                       Weight
                     </label>
                   </div>
@@ -460,9 +458,7 @@ const SignUp = () => {
               <div className={Style.Cover}>
                 <div className={Style.labelInputOnlyArea}>
                   <div className={Style.Cover}>
-                    <label 
-                      htmlFor="height"
-                      className={Style.formLabel}>
+                    <label htmlFor="height" className={Style.formLabel}>
                       Height
                     </label>
                   </div>
@@ -490,10 +486,14 @@ const SignUp = () => {
       <div className={Style.Cover}>
         <div className={Style.buttonCover}>
           <div className={Style.Cover}>
-            <button className={Style.btn} type="button" onClick={returnHandler}>Return</button>
+            <button className={Style.btn} type="button" onClick={returnHandler}>
+              Return
+            </button>
           </div>
           <div className={Style.Cover}>
-            <button className={Style.btn} type="button" onClick={submitHandler}>Submit</button>
+            <button className={Style.btn} type="button" onClick={submitHandler}>
+              Submit
+            </button>
           </div>
         </div>
       </div>

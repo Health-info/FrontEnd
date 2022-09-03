@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Style from "./login.module.css";
 import { loginApiUrl } from "../../apiUrl";
 
@@ -13,13 +13,17 @@ function Login() {
   const handleInputPw = (e) => {
     setInputPw(e.target.value);
   };
-
+  const idInput = useRef();
+  const pwInput = useRef();
   //Login 클릭
   const submitHandler = (event) => {
     event.preventDefault();
-    if (inputId === "" || inputPw === "") {
-      alert("아이디나 비밀번호를 입력해주십시오.")
+    if (inputId === "") {
+      idInput.current.focus();
       return;
+    }
+    if (inputPw === "") {
+      pwInput.current.focus();
     }
 
     axios
@@ -30,7 +34,7 @@ function Login() {
       .then((response) => {
         console.log(response);
         localStorage.setItem("login", "True");
-        window.location.href = '/';
+        window.location.href = "/";
       })
       .catch((response) => {
         console.log(response);
@@ -40,8 +44,8 @@ function Login() {
 
   //Sign Up 버튼 클릭 handler
   const signUpHandler = () => {
-    window.location.href='/signup'
-  }
+    window.location.href = "/signup";
+  };
 
   return (
     <div className={Style.loginBoxCover}>
@@ -54,10 +58,13 @@ function Login() {
           <div className={Style.Cover}>
             <div className={Style.loginform}>
               <div className={Style.Cover}>
-                <label htmlFor="loginId" className={Style.formLabel}>ID</label>
+                <label htmlFor="loginId" className={Style.formLabel}>
+                  ID
+                </label>
               </div>
               <div className={Style.Cover}>
                 <input
+                  ref={idInput}
                   className={Style.formInput}
                   id="loginId"
                   type="email"
@@ -68,10 +75,13 @@ function Login() {
                 />
               </div>
               <div className={Style.Cover}>
-                <label htmlFor="loginPassword" className={Style.formLabel}>PW</label>
+                <label htmlFor="loginPassword" className={Style.formLabel}>
+                  PW
+                </label>
               </div>
               <div className={Style.Cover}>
                 <input
+                  ref={pwInput}
                   className={Style.formInput}
                   id="loginPassword"
                   type="password"
@@ -86,10 +96,22 @@ function Login() {
           <div className={Style.Cover}>
             <div className={Style.buttonCover}>
               <div className={Style.Cover}>
-                <button type="button" className={Style.btn} onClick={signUpHandler}>Sign Up</button>
+                <button
+                  type="button"
+                  className={Style.btn}
+                  onClick={signUpHandler}
+                >
+                  Sign Up
+                </button>
               </div>
               <div className={Style.Cover}>
-                <button type="submit" className={Style.btn} onClick={submitHandler}>LogIn</button>
+                <button
+                  type="submit"
+                  className={Style.btn}
+                  onClick={submitHandler}
+                >
+                  LogIn
+                </button>
               </div>
             </div>
           </div>
