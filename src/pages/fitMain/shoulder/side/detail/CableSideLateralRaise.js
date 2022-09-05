@@ -1,6 +1,5 @@
 import React from "react";
 import CommentInput from "../../../comment/commentInput";
-import CommentLike from "../../../comment/commentLike";
 
 function CableSideLateralRaise() {
   return (
@@ -12,7 +11,6 @@ function CableSideLateralRaise() {
       <div></div>
       <div>
         <CommentInput />
-        <CommentLike />
       </div>
     </div>
   );

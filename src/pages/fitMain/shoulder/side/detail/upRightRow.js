@@ -1,6 +1,5 @@
 import React from "react";
 import CommentInput from "../../../comment/commentInput";
-import CommentLike from "../../../comment/commentLike";
 function UprightRow() {
   return (
     <div>
@@ -27,7 +26,6 @@ function UprightRow() {
       </div>
       <div>
         <CommentInput />
-        <CommentLike />
       </div>
     </div>
   );

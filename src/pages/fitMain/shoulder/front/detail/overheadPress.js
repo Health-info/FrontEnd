@@ -1,6 +1,5 @@
 import React from "react";
 import CommentInput from "../../../comment/commentInput";
-import CommentLike from "../../../comment/commentLike";
 
 function OverheadPress() {
   return (
@@ -20,9 +19,8 @@ function OverheadPress() {
       </div>
       <div>
         <CommentInput />
-        <CommentLike />
       </div>
     </div>
   );
 }
-export default overheadPress;
+export default OverheadPress;

@@ -1,3 +1,4 @@
+import axios, { Axios } from "axios";
 import React, { useContext, useState } from "react";
 
 const CommentInput = () => {
@@ -8,7 +9,7 @@ const CommentInput = () => {
   const onChange = (e) => {
     setInput(e.target.value);
   };
-  const CommentInput = () => {
+  const addComment = () => {
     setComments(
       comments.concat({
         id: comments.length + 1,
