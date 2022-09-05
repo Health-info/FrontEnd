@@ -1,6 +1,5 @@
 import React from "react";
 import CommentInput from "../../../comment/commentInput";
-import CommentLike from "../../../comment/commentLike";
 function DumbbellArnoldPress() {
   return (
     <div>
@@ -31,7 +30,6 @@ function DumbbellArnoldPress() {
       </div>
       <div>
         <CommentInput />
-        <CommentLike />
       </div>
     </div>
   );

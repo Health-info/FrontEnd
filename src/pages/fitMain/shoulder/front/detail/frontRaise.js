@@ -1,6 +1,5 @@
 import React from "react";
 import CommentInput from "../../../comment/commentInput";
-import CommentLike from "../../../comment/commentLike";
 function FrontRaise() {
   return (
     <div>
@@ -27,7 +26,6 @@ function FrontRaise() {
       </div>
       <div>
         <CommentInput />
-        <CommentLike />
       </div>
     </div>
   );
