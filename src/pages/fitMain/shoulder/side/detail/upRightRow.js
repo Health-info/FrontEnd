@@ -1,13 +1,10 @@
 import React from "react";
-import "FrontEnd/public/img/Shoulder/UprightRow.jpg";
-import Commenting from "../../front/detail/commenting";
+import CommentInput from "../../../comment/commentInput";
+import CommentLike from "../../../comment/commentLike";
 function UprightRow() {
   return (
     <div>
       <h1>Upright Row</h1>
-      <div>
-        <img src="UpRightRow.jpg" />
-      </div>
       <div>
         <ul>
           <li>
@@ -29,7 +26,8 @@ function UprightRow() {
         </ul>
       </div>
       <div>
-        <Commenting />
+        <CommentInput />
+        <CommentLike />
       </div>
     </div>
   );

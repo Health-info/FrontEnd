@@ -1,14 +1,12 @@
 import React from "react";
-import "FrontEnd/public/img/OverHeadPress.png";
-import Commenting from "./commenting";
+import CommentInput from "../../../comment/commentInput";
+import CommentLike from "../../../comment/commentLike";
 
 function OverheadPress() {
   return (
     <div>
       <h1>Over Head Press</h1>
-      <div>
-        <img src="img/OverHeadPress.png" />
-      </div>
+
       <div>
         <ul>
           <li>바벨을 오버핸드 그립으로 잡고 손은 어깨보다 살짝 넓게 잡는다.</li>
@@ -21,7 +19,8 @@ function OverheadPress() {
         </ul>
       </div>
       <div>
-        <Commenting />
+        <CommentInput />
+        <CommentLike />
       </div>
     </div>
   );

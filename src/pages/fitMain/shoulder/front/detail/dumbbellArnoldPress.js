@@ -1,6 +1,6 @@
 import React from "react";
-import "FrontEnd/public/img/Shoulder/arnold-press.jpg";
-import CommentSee from "../../../Comment/commentSee";
+import CommentInput from "../../../comment/commentInput";
+import CommentLike from "../../../comment/commentLike";
 function DumbbellArnoldPress() {
   return (
     <div>
@@ -8,7 +8,7 @@ function DumbbellArnoldPress() {
         <h1>Dumbbell Arnold Press</h1>
       </div>
       <div>
-        <img src="arnold-press.jpg" />
+        <img src="/img/shoulder/front/arnold-press.jpg" />
       </div>
       <div>
         <ul>
@@ -30,7 +30,8 @@ function DumbbellArnoldPress() {
         </ul>
       </div>
       <div>
-        <CommentSee />
+        <CommentInput />
+        <CommentLike />
       </div>
     </div>
   );

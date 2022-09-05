@@ -1,13 +1,10 @@
 import React from "react";
-import "FrontEnd/public/img/Shoulder/SideLateralRaise.jpg";
-import Commenting from "../../front/detail/commenting";
+import CommentInput from "../../../comment/commentInput";
+import CommentLike from "../../../comment/commentLike";
 function SideLateralRaise() {
   return (
     <div>
       <h1>Side Lateral Raise</h1>
-      <div>
-        <img src="SideLateralRaise.jpg " />
-      </div>
       <div>
         <ul>
           <li>다리는 어깨 넓이로 벌린다.</li>
@@ -25,7 +22,8 @@ function SideLateralRaise() {
         </ul>
       </div>
       <div>
-        <Commenting />
+        <CommentInput />
+        <CommentLike />
       </div>
     </div>
   );

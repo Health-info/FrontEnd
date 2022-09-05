@@ -1,7 +1,7 @@
-import Front from "./front";
-import Side from "./side/side";
+import React from "react";
 import Back from "./back/back";
-
+import Front from "./front/front";
+import Side from "./side/side";
 function Shoulder() {
   return (
     <div>

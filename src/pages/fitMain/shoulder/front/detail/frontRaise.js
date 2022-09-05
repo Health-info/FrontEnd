@@ -1,6 +1,6 @@
 import React from "react";
-import "FrontEnd/public/img/Shoulder/front-raise.jpg";
-import Commenting from "./commenting";
+import CommentInput from "../../../comment/commentInput";
+import CommentLike from "../../../comment/commentLike";
 function FrontRaise() {
   return (
     <div>
@@ -8,7 +8,7 @@ function FrontRaise() {
         <h1>Front Raise</h1>
       </div>
       <div>
-        <img src="img/front-raise.jpg" />
+        <img src="/img/shoulder/front/front-raise.jpg" />
       </div>
       <div>
         <ul>
@@ -26,7 +26,8 @@ function FrontRaise() {
         </ul>
       </div>
       <div>
-        <Commenting />
+        <CommentInput />
+        <CommentLike />
       </div>
     </div>
   );

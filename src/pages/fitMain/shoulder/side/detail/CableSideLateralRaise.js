@@ -1,16 +1,18 @@
 import React from "react";
-import Commenting from "../../front/detail/commenting";
+import CommentInput from "../../../comment/commentInput";
+import CommentLike from "../../../comment/commentLike";
 
 function CableSideLateralRaise() {
   return (
     <div>
       <h1>Cable Side Lateral Raise</h1>
       <div>
-        <img src="CableLateralRaise.jpg" />
+        <img src="/img/shoulder/side/CableLateralRaise.jpg" />
       </div>
       <div></div>
       <div>
-        <Commenting />
+        <CommentInput />
+        <CommentLike />
       </div>
     </div>
   );
