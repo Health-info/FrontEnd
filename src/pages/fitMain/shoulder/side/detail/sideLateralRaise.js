@@ -1,5 +1,4 @@
 import React from "react";
-import CommentInput from "../../../comment/commentInput";
 function SideLateralRaise() {
   return (
     <div>
@@ -20,9 +19,7 @@ function SideLateralRaise() {
           <li>무게는 절대 무리하지 말고 저중량으로 시작한다.</li>
         </ul>
       </div>
-      <div>
-        <CommentInput />
-      </div>
+      <div></div>
     </div>
   );
 }

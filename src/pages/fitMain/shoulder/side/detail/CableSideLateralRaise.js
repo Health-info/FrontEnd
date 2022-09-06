@@ -1,5 +1,4 @@
 import React from "react";
-import CommentInput from "../../../comment/commentInput";
 
 function CableSideLateralRaise() {
   return (
@@ -9,9 +8,7 @@ function CableSideLateralRaise() {
         <img src="/img/shoulder/side/CableLateralRaise.jpg" />
       </div>
       <div></div>
-      <div>
-        <CommentInput />
-      </div>
+      <div></div>
     </div>
   );
 }
