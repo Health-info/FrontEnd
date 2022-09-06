@@ -1,5 +1,4 @@
 import React from "react";
-import CommentInput from "../../../comment/commentInput";
 function UprightRow() {
   return (
     <div>
@@ -24,9 +23,7 @@ function UprightRow() {
           </li>
         </ul>
       </div>
-      <div>
-        <CommentInput />
-      </div>
+      <div></div>
     </div>
   );
 }
