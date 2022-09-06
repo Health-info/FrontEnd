@@ -1,10 +1,13 @@
 import axios, { Axios } from "axios";
 import React, { useContext, useState } from "react";
+import { commentAddApiUrl } from "../../../apiUrl";
 
 const CommentInput = () => {
   const [input, setInput] = useState();
   const { userData } = useContext();
   const [comments, setComments] = useState([]);
+
+  axios.get(commentAddApiUrl);
 
   const onChange = (e) => {
     setInput(e.target.value);

@@ -24,9 +24,7 @@ function FrontRaise() {
           </li>
         </ul>
       </div>
-      <div>
-        <CommentInput />
-      </div>
+      <div></div>
     </div>
   );
 }

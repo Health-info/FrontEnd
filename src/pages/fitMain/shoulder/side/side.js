@@ -1,7 +1,7 @@
 import React from "react";
 import CableSideLateralRaise from "./detail/CableSideLateralRaise";
 import SideLateralRaise from "./detail/sideLateralRaise";
-import UprightRow from "./detail/UprightRow";
+import UprightRow from "./detail/upRightRow";
 function Side() {
   return (
     <div>

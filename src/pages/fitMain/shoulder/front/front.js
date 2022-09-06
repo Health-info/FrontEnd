@@ -1,14 +1,22 @@
-import React from "react";
-import DumbbellArnoldPress from "./detail/dumbbellArnoldPress";
+import React, { useState } from "react";
 import FrontRaise from "./detail/frontRaise";
-import overheadPress from "./detail/overheadPress";
 
 function Front() {
+  const [valid, setValid] = useState(false);
   return (
     <div>
-      <button onClick={<FrontRaise />}>Front Raise</button>
-      <button onClick={<DumbbellArnoldPress />}>Dumbbell Arnold Press</button>
-      <button onClick={<overheadPress />}>Over Head Press</button>
+      <div>
+        <button
+          onClick={() => {
+            setValid(!valid);
+          }}
+        >
+          Front Raise
+        </button>
+        {valid === true ? <FrontRaise /> : null}
+      </div>
+      <button>Dumbbell Arnold Press</button>
+      <button>Over Head Press</button>
     </div>
   );
 }
