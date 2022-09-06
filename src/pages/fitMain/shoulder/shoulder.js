@@ -1,22 +1,44 @@
 import React, { useState } from "react";
+import Back from "./back/back";
 import Front from "./front/front";
+import Side from "./side/side";
 function Shoulder() {
-  const [valid, setValid] = useState(false);
+  const [valid, setValid] = useState("");
   return (
     <div>
       <div>
         <button
           onClick={() => {
-            setValid(!valid);
+            setValid("Front");
           }}
         >
           Front
         </button>
-        {valid === true ? <Front /> : null}
+        {valid === "Front" ? <Front /> : null}
       </div>
-      <button> Side</button>
-      <button> Back</button>
-      <button>Return</button>
+      <button
+        onClick={() => {
+          setValid("Side");
+        }}
+      >
+        Side
+      </button>
+      {valid === "Side" ? <Side /> : null}
+      <button
+        onClick={() => {
+          setValid("Back");
+        }}
+      >
+        Back
+      </button>
+      {valid === "Back" ? <Back /> : null}
+      <button
+        onClick={() => {
+          setValid("");
+        }}
+      >
+        Return
+      </button>
     </div>
   );
 }
