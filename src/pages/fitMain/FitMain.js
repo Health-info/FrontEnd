@@ -7,20 +7,34 @@ const FitMain = () => {
 
   return (
     <div>
-      <div>
-        <button
-          onClick={() => {
-            setValid(!valid);
-          }}
-        >
-          Shoulder
-        </button>
-        {valid === true ? <Shoulder /> : null}
+      <div className={Style.container}>
+        <div className={Style.fixedMenu}>
+          <div>
+            <div>
+              <button
+                onClick={() => {
+                  setValid(!valid);
+                }}
+              >
+                Shoulder
+              </button>
+              {valid === true ? <Shoulder /> : null}
+            </div>
+            <div>
+              <button>Back</button>
+            </div>
+            <div>
+              <button>Leg</button>
+            </div>
+            <div>
+              <button>Arm</button>
+            </div>
+            <div>
+              <button>Core</button>
+            </div>
+          </div>
+        </div>
       </div>
-      <button>Back</button>
-      <button>Leg</button>
-      <button>Arm</button>
-      <button>Core</button>
     </div>
   );
 };

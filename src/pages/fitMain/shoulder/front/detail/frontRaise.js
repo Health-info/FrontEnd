@@ -1,13 +1,9 @@
 import React from "react";
-import CommentInput from "../../../comment/commentInput";
 function FrontRaise() {
   return (
     <div>
       <div>
         <h1>Front Raise</h1>
-      </div>
-      <div>
-        <img src="/img/shoulder/front/front-raise.jpg" />
       </div>
       <div>
         <ul>
