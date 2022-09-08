@@ -34,6 +34,7 @@ const FitMain = () => {
             </div>
           </div>
         </div>
+        <div className={Style.container}></div>
       </div>
     </div>
   );
